@@ -6,7 +6,7 @@ describe("Idata Tests", () => {
         const idata = new Idata();
         idata.data = {'A': 5, 'B': 8, 'C': 3, 'D': 1, 'E': 6};
 
-        const consoleSpy = spyOn(console, 'log');
+        const consoleSpy = spyOn(console, "log").mockImplementation(() => {});
         idata.displayData();
         expect(consoleSpy).toHaveBeenCalledWith('  *       ');
         expect(consoleSpy).toHaveBeenCalledWith('  *       ');
@@ -21,7 +21,7 @@ describe("Idata Tests", () => {
     test("should handle all 0 values", () => {
         const idata = new Idata();
         idata.data = {'A': 0, 'B': 0, 'C': 0, 'D': 0, 'E': 0};
-        const consoleSpy = spyOn(console, 'log');
+        const consoleSpy = spyOn(console, "log").mockImplementation(() => {});
         idata.displayData();
         expect(consoleSpy).toHaveBeenCalledWith('A B C D E ');
     });
@@ -30,7 +30,7 @@ describe("Idata Tests", () => {
         const idata = new Idata();
         idata.data = {};
 
-        const consoleSpy = spyOn(console, 'log');
+        const consoleSpy = spyOn(console, "log").mockImplementation(() => {});
         idata.displayData();
         expect(consoleSpy).toHaveBeenCalledWith('No data to display.');
     });
