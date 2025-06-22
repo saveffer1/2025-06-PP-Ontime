@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+  </head>
+  <body>
+    <main>
+        <input id="inputNumber" type="number" placeholder="ใส่จำนวนเต็มบวก" />
+        <button id="submitBtn">Submit</button>
+        <div id="display"></div>
+    </main>
+    <script>
+        const inputEl   = document.getElementById('inputNumber');
+        const btnEl     = document.getElementById('submitBtn');
+        const dispEl    = document.getElementById('display');
+
+        dispEl.style.fontFamily    = 'monospace';
+        dispEl.style.whiteSpace    = 'pre';
+        dispEl.style.textAlign     = 'center';
+        dispEl.style.padding       = '10px';
+
+        btnEl.addEventListener('click', () => {
+        const n = parseInt(inputEl.value, 10);
+
+        dispEl.textContent = '';
+
+        if (isNaN(n) || n < 1) {
+            alert('กรุณาใส่จำนวนเต็มบวก');
+            return;
+        }
+
+
+        for (let i = 1; i <= n; i += 2) {
+            const line = '*'.repeat(i);
+            dispEl.textContent += line + '\n';
+        }
+        });
+    </script>
+  </body>
+</html>

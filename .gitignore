@@ -1,6 +1,7 @@
 # keep backup
 bak.ts
 *.pdf
+*.txt
 
 # Logs
 logs
