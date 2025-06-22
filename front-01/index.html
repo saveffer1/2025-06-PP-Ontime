@@ -20,7 +20,10 @@
         dispEl.style.fontFamily    = 'monospace';
         dispEl.style.whiteSpace    = 'pre';
         dispEl.style.textAlign     = 'center';
-        dispEl.style.padding       = '10px';
+        dispEl.style.display    = 'block';
+        dispEl.style.width      = inputEl.offsetWidth + 'px';
+        dispEl.style.marginLeft = inputEl.offsetLeft + 'px';
+        dispEl.style.marginTop  = '8px';
 
         btnEl.addEventListener('click', () => {
         const n = parseInt(inputEl.value, 10);
