@@ -22,8 +22,7 @@ describe("Test NumberArray class", () => {
     });
 
     test("sortMaxToMin with negative numbers", () => {
-        const numberArray = new NumberArray([-1, -3, -2]);
-        expect(numberArray.sortMaxToMin()).toBe('-1 -2 -3');
+        expect(() => new NumberArray([-1, -3, -2])).toThrow('Invalid input: must be an array of positive integers');
     });
 
     test("div with empty array throws error", () => {
