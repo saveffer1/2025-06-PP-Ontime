@@ -3,8 +3,8 @@ export class NumberArray {
     private isSorted: boolean = false;
 
     constructor(data: number[]) {
-        if (!Array.isArray(data) || !data.every(Number.isInteger)) {
-            throw new Error('Invalid input: must be an array of integers');
+        if (!Array.isArray(data) || !data.every(x => Number.isInteger(x) && x > 0)) {
+            throw new Error('Invalid input: must be an array of positive integers');
         }
         this.data = data;
     }
@@ -82,18 +82,17 @@ function main() {
     return;
     }
 
-    const tokens = input.trim().split(/\s+/);
+    const str = input.trim().split(/\s+/);
+    const data: number[] = str.map(Number);
 
-    for (const t of tokens) {
-        if (!/^\d+$/.test(t)) {
-            console.error(`Invalid input "${t}". Only positive integers are allowed.`);
-            return;
-        }
+    let numberArray: NumberArray;
+    try {
+        numberArray = new NumberArray(data);
+    } catch (err: any) {
+        console.error(err.message);
+        return;
     }
 
-    const data: number[] = tokens.map(Number);
-
-    const numberArray = new NumberArray(data);
     const sortedData = numberArray.sortMaxToMin();
     console.log('Sorting (Max-to-Min):', sortedData);
     console.log('Max/Min:', numberArray.div());
